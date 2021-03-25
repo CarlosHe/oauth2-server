@@ -1,0 +1,30 @@
+{
+	"hash": "ecdc415c05e27426ae4a169c1f320b5f",
+	"updated": "2021-03-25T19:15:42.4587661-03:00",
+	"installedModules": {
+		"github.com/carloshe/delphi-openssl": {
+			"name": "delphi-openssl",
+			"version": "1.0.4",
+			"hash": "2c14bf5c9426817d995df3142362b779",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"github.com/paolo-rossi/delphi-jose-jwt": {
+			"name": "delphi-jose-jwt",
+			"version": "v3.0.0",
+			"hash": "e07d23afdc06adef34b7fbbabd97ce83",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"github.com/viniciussanchez/bcrypt": {
+			"name": "bcrypt",
+			"version": "1.0.3",
+			"hash": "04e8230fbb4d3e6080dc8fb73728babd",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		}
+	}
+}

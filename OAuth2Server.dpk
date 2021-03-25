@@ -1,0 +1,83 @@
+package OAuth2Server;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  inet,
+  IndySystem,
+  IndyProtocols,
+  IndyCore;
+
+contains
+  OAuth2.AuthorizationServer in 'src\OAuth2.AuthorizationServer.pas',
+  OAuth2.CryptKey in 'src\OAuth2.CryptKey.pas',
+  OAuth2.ResourceServer in 'src\OAuth2.ResourceServer.pas',
+  OAuth2.ResponseType.Abstract in 'src\response-type\OAuth2.ResponseType.Abstract.pas',
+  OAuth2.ResponseType.BearerTokenResponse in 'src\response-type\OAuth2.ResponseType.BearerTokenResponse.pas',
+  OAuth2.ResponseType.Contract in 'src\response-type\OAuth2.ResponseType.Contract.pas',
+  OAuth2.ResponseType.RedirectResponse in 'src\response-type\OAuth2.ResponseType.RedirectResponse.pas',
+  OAuth2.RequestType.AuthorizationRequest in 'src\request-type\OAuth2.RequestType.AuthorizationRequest.pas',
+  OAuth2.Repository.AccessToken.Contract in 'src\repositories\OAuth2.Repository.AccessToken.Contract.pas',
+  OAuth2.Repository.AuthCode.Contract in 'src\repositories\OAuth2.Repository.AuthCode.Contract.pas',
+  OAuth2.Repository.Client.Contract in 'src\repositories\OAuth2.Repository.Client.Contract.pas',
+  OAuth2.Repository.Contract in 'src\repositories\OAuth2.Repository.Contract.pas',
+  OAuth2.Repository.RefreshToken.Contract in 'src\repositories\OAuth2.Repository.RefreshToken.Contract.pas',
+  OAuth2.Repository.Scope.Contract in 'src\repositories\OAuth2.Repository.Scope.Contract.pas',
+  OAuth2.Repository.User.Contract in 'src\repositories\OAuth2.Repository.User.Contract.pas',
+  OAuth2.Provider.Crypto in 'src\providers\OAuth2.Provider.Crypto.pas',
+  OAuth2.Grant.AbstractAuthorize in 'src\grant\OAuth2.Grant.AbstractAuthorize.pas',
+  OAuth2.Grant.AbstractGrant in 'src\grant\OAuth2.Grant.AbstractGrant.pas',
+  OAuth2.Grant.AuthCode in 'src\grant\OAuth2.Grant.AuthCode.pas',
+  OAuth2.Grant.ClientCredentials in 'src\grant\OAuth2.Grant.ClientCredentials.pas',
+  OAuth2.Grant.GrantType.Contract in 'src\grant\OAuth2.Grant.GrantType.Contract.pas',
+  OAuth2.Grant.Implicit in 'src\grant\OAuth2.Grant.Implicit.pas',
+  OAuth2.Grant.Password in 'src\grant\OAuth2.Grant.Password.pas',
+  OAuth2.Grant.RefreshToken in 'src\grant\OAuth2.Grant.RefreshToken.pas',
+  OAuth2.Exception.ServerException in 'src\exception\OAuth2.Exception.ServerException.pas',
+  OAuth2.Entity.AccessToken.Contract in 'src\entities\OAuth2.Entity.AccessToken.Contract.pas',
+  OAuth2.Entity.AuthCode.Contract in 'src\entities\OAuth2.Entity.AuthCode.Contract.pas',
+  OAuth2.Entity.Client.Contract in 'src\entities\OAuth2.Entity.Client.Contract.pas',
+  OAuth2.Entity.RefreshToken.Contract in 'src\entities\OAuth2.Entity.RefreshToken.Contract.pas',
+  OAuth2.Entity.Scope.Contract in 'src\entities\OAuth2.Entity.Scope.Contract.pas',
+  OAuth2.Entity.Token.Contract in 'src\entities\OAuth2.Entity.Token.Contract.pas',
+  OAuth2.Entity.User.Contract in 'src\entities\OAuth2.Entity.User.Contract.pas',
+  OAuth2.Entity.AccessToken in 'src\entities\concrets\OAuth2.Entity.AccessToken.pas',
+  OAuth2.Entity.AuthCode in 'src\entities\concrets\OAuth2.Entity.AuthCode.pas',
+  OAuth2.Entity.Client in 'src\entities\concrets\OAuth2.Entity.Client.pas',
+  OAuth2.Entity.RefreshToken in 'src\entities\concrets\OAuth2.Entity.RefreshToken.pas',
+  OAuth2.Entity.Scope in 'src\entities\concrets\OAuth2.Entity.Scope.pas',
+  OAuth2.Entity.Token in 'src\entities\concrets\OAuth2.Entity.Token.pas',
+  OAuth2.Entity.User in 'src\entities\concrets\OAuth2.Entity.User.pas',
+  OAuth2.CodeChallengeVerifier.Contract in 'src\code-challenge-verifiers\OAuth2.CodeChallengeVerifier.Contract.pas',
+  OAuth2.CodeChallengeVerifier.PlainVerifier in 'src\code-challenge-verifiers\OAuth2.CodeChallengeVerifier.PlainVerifier.pas',
+  OAuth2.CodeChallengeVerifier.S256Verifier in 'src\code-challenge-verifiers\OAuth2.CodeChallengeVerifier.S256Verifier.pas',
+  OAuth2.AuthorizationValidator.Contract in 'src\authorization-validators\OAuth2.AuthorizationValidator.Contract.pas',
+  OAuth2.BearerTokenValidator in 'src\authorization-validators\OAuth2.BearerTokenValidator.pas';
+
+end.

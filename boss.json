@@ -4,9 +4,7 @@
 	"version": "1.0.0",
 	"homepage": "",
 	"mainsrc": "./src/",
-	"projects": [
-		"OAuth2Server.dproj"
-	],
+	"projects": [],
 	"dependencies": {
 		"github.com/carloshe/delphi-openssl": "^1.0.4",
 		"github.com/paolo-rossi/delphi-jose-jwt": "^v3.0.0",

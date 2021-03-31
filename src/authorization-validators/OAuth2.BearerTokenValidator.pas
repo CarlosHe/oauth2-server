@@ -20,6 +20,7 @@ type
   public
     { public declarations }
     constructor Create(AAccessTokenRepository: IOAuth2AccessTokenRepository);
+    procedure ValidateBearerToken(AToken: string);
     function ValidateAuthorization(ARequest: TWebRequest): TWebRequest;
     procedure SetPublicKey(AKey: TOAuth2CryptKey);
   end;
@@ -55,13 +56,7 @@ end;
 function TOAuth2BearerTokenValidator.ValidateAuthorization(ARequest: TWebRequest): TWebRequest;
 var
   LHeader: string;
-  LJWT: string;
-  LSigner: TJWS;
-  LToken: TJWT;
-  LJWK: TJWK;
-  LValidations: IJOSEConsumer;
-  LJWTContext: TJOSEContext;
-  LValidationErro: string;
+  LToken: string;
 begin
   Result := ARequest;
 
@@ -73,11 +68,23 @@ begin
   if not LHeader.StartsWith('bearer ', True) then
     raise EOAuth2ServerException.AccessDenied('Invalid authorization type');
 
-  LJWT := TRegEx.Replace(LHeader, '^(?:\s+)?bearer\s', '', [TRegExOption.roIgnoreCase]);
-  try
-    LJWTContext := TJOSEContext.Create(LJWT, TJWTClaims);
-    try
+  LToken := TRegEx.Replace(LHeader, '^(?:\s+)?bearer\s', '', [TRegExOption.roIgnoreCase]);
 
+  ValidateBearerToken(LToken);
+end;
+
+procedure TOAuth2BearerTokenValidator.ValidateBearerToken(AToken: string);
+var
+  LSigner: TJWS;
+  LToken: TJWT;
+  LJWK: TJWK;
+  LValidations: IJOSEConsumer;
+  LJWTContext: TJOSEContext;
+  LValidationErro: string;
+begin
+  try
+    LJWTContext := TJOSEContext.Create(AToken, TJWTClaims);
+    try
       LValidations := TJOSEConsumerBuilder.NewConsumer
         .SetRequireJwtId
         .SetSkipVerificationKeyValidation
@@ -109,7 +116,7 @@ begin
       try
         LSigner.SkipKeyValidation := True;
         LSigner.SetKey(LJWK);
-        LSigner.CompactToken := LJWT;
+        LSigner.CompactToken := AToken;
         LSigner.SetHeaderAlgorithm('RS256');
         try
           LSigner.VerifySignature;
@@ -132,7 +139,6 @@ begin
   finally
     LToken.Free;
   end;
-
 end;
 
 end.

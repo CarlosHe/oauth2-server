@@ -1,6 +1,6 @@
 {
 	"hash": "ecdc415c05e27426ae4a169c1f320b5f",
-	"updated": "2021-03-25T19:15:42.4587661-03:00",
+	"updated": "2021-03-31T19:20:22.4259764-03:00",
 	"installedModules": {
 		"github.com/carloshe/delphi-openssl": {
 			"name": "delphi-openssl",
@@ -12,8 +12,8 @@
 		},
 		"github.com/paolo-rossi/delphi-jose-jwt": {
 			"name": "delphi-jose-jwt",
-			"version": "v3.0.0",
-			"hash": "e07d23afdc06adef34b7fbbabd97ce83",
+			"version": "v3.0.1",
+			"hash": "1a49f0bff1d2fdef52860a70e6f24f76",
 			"artifacts": {},
 			"failed": false,
 			"changed": false

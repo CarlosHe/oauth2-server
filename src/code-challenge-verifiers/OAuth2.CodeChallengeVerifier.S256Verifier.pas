@@ -3,7 +3,7 @@ unit OAuth2.CodeChallengeVerifier.S256Verifier;
 interface
 
 uses
-  OAuth2.CodeChallengeVerifier.Contract;
+  OAuth2.Contract.CodeChallengeVerifier;
 
 type
 

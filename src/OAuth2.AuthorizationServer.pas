@@ -3,15 +3,15 @@ unit OAuth2.AuthorizationServer;
 interface
 
 uses
-  OAuth2.Grant.GrantType.Contract,
-  OAuth2.CryptKey,
-  OAuth2.ResponseType.Contract,
-  OAuth2.Repository.Client.Contract,
-  OAuth2.Repository.AccessToken.Contract,
-  OAuth2.Repository.Scope.Contract,
-  OAuth2.RequestType.AuthorizationRequest,
+  Web.HTTPApp,
   System.Generics.Collections,
-  Web.HTTPApp;
+  OAuth2.Contract.Grant.GrantType,
+  OAuth2.Contract.ResponseType,
+  OAuth2.Contract.Repository.Client,
+  OAuth2.Contract.Repository.AccessToken,
+  OAuth2.Contract.Repository.Scope,
+  OAuth2.RequestType.AuthorizationRequest,
+  OAuth2.CryptKey;
 
 type
 
@@ -125,8 +125,8 @@ begin
       GetResponseType,
       FGrantTypeAccessTokenTTL.Items[LGrantType.GetIdentifier]
       );
-      if LTokenResponse <> nil then
-        LTokenResponse.GenerateHttpResponse(AResponse);
+    if LTokenResponse <> nil then
+      LTokenResponse.GenerateHttpResponse(AResponse);
     Exit;
   end;
   raise EOAuth2ServerException.UnsupportedGrantType;

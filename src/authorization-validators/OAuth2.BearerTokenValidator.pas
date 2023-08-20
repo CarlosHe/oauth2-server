@@ -3,10 +3,10 @@ unit OAuth2.BearerTokenValidator;
 interface
 
 uses
-  OAuth2.AuthorizationValidator.Contract,
-  OAuth2.Repository.AccessToken.Contract,
-  OAuth2.CryptKey,
-  Web.HTTPApp;
+  Web.HTTPApp,
+  OAuth2.Contract.AuthorizationValidator,
+  OAuth2.Contract.Repository.AccessToken,
+  OAuth2.CryptKey;
 
 type
 
@@ -28,6 +28,10 @@ type
 implementation
 
 uses
+  System.SysUtils,
+  System.RegularExpressions,
+  System.Classes,
+  System.JSON,
   JOSE.Core.JWT,
   JOSE.Core.Base,
   JOSE.Core.Builder,
@@ -35,11 +39,7 @@ uses
   JOSE.Core.JWK,
   JOSE.Context,
   JOSE.Core.JWS,
-  OAuth2.Exception.ServerException,
-  System.SysUtils,
-  System.RegularExpressions,
-  System.Classes,
-  System.JSON;
+  OAuth2.Exception.ServerException;
 
 { TOAuth2BearerTokenValidator }
 

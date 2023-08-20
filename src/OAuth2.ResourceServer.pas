@@ -3,10 +3,10 @@ unit OAuth2.ResourceServer;
 interface
 
 uses
-  OAuth2.Repository.AccessToken.Contract,
-  OAuth2.AuthorizationValidator.Contract,
-  OAuth2.CryptKey,
-  Web.HTTPApp;
+  Web.HTTPApp,
+  OAuth2.Contract.Repository.AccessToken,
+  OAuth2.Contract.AuthorizationValidator,
+  OAuth2.CryptKey;
 
 type
 

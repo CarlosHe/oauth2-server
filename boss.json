@@ -1,7 +1,7 @@
 {
 	"name": "oauth2-server",
 	"description": "OAuth2 server for Delphi WebBroker",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"homepage": "",
 	"mainsrc": "./src/",
 	"projects": [],

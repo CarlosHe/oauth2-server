@@ -110,13 +110,9 @@ begin
 
       LResponse := TOAuth2RedirectResponse.Create;
       Result := LResponse;
-      LResponse.SetRedirectUri(MakeRedirectUri(
-        LFinalRedirectUri,
-        [
-        TPair<string, string>.Create('code', TOAuth2CryptoProvider.EncryptWithPassword(LPayload.ToJSON, GetEncryptionKey)),
-        TPair<string, string>.Create('state', AAuthorizationRequest.GetState)
-        ]
-        ));
+      LResponse.SetRedirectUri(MakeRedirectUri(LFinalRedirectUri,[
+        TPair<string, string>.Create('code', TURLEncoding.URL.Encode(TOAuth2CryptoProvider.EncryptWithPassword(LPayload.ToJSON, GetEncryptionKey))),
+        TPair<string, string>.Create('state', AAuthorizationRequest.GetState)]));
     finally
       LPayload.Free;
     end;

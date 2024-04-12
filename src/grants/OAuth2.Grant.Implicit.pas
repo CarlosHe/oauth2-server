@@ -22,7 +22,7 @@ type
     function GetClientRedirectUri(AuthorizationRequest: TOAuth2AuthorizationRequest): string;
   public
     { public declarations }
-    constructor Create(AAccessTokenTTL: Int64; const AQueryDelimiter: string = '#');
+    constructor Create(AAccessTokenTTL: Int64; const AQueryDelimiter: string = '?');
     procedure SetRefreshTokenTTL(ARefreshTokenTTL: Int64); override;
     procedure SetRefreshTokenRepository(ARefreshTokenRepository: IOAuth2RefreshTokenRepository); override;
     function CanRespondToAccessTokenRequest(ARequest: TWebRequest): Boolean; override;
@@ -31,7 +31,7 @@ type
     function CanRespondToAuthorizationRequest(ARequest: TWebRequest): Boolean; override;
     function ValidateAuthorizationRequest(ARequest: TWebRequest): TOAuth2AuthorizationRequest; override;
     function CompleteAuthorizationRequest(AAuthorizationRequest: TOAuth2AuthorizationRequest): IOAuth2ResponseType; override;
-    class function New(AAccessTokenTTL: Int64; const AQueryDelimiter: string = '#'): IOAuth2GrantTypeGrant;
+    class function New(AAccessTokenTTL: Int64; const AQueryDelimiter: string = '?'): IOAuth2GrantTypeGrant;
   end;
 
 implementation

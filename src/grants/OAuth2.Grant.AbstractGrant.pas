@@ -269,7 +269,7 @@ begin
       on E: Exception do
       begin
         if LMaxGenerationAttempts = 0 then
-          raise E
+          raise;
         else
           continue;
       end;
@@ -304,7 +304,7 @@ begin
       on E: Exception do
       begin
         if LMaxGenerationAttempts = 0 then
-          raise E;
+          raise;
         continue;
       end;
     end;
@@ -334,7 +334,7 @@ begin
       on E: Exception do
       begin
         if LMaxGenerationAttempts = 0 then
-          raise E;
+          raise;
         continue;
       end;
     end;

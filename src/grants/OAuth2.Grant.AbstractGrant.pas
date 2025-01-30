@@ -269,7 +269,7 @@ begin
       on E: Exception do
       begin
         if LMaxGenerationAttempts = 0 then
-          raise;
+          raise
         else
           continue;
       end;

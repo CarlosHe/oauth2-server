@@ -31,6 +31,7 @@ implementation
 uses
   System.SysUtils,
   System.StrUtils,
+  System.DateUtils,
   System.Generics.Collections,
   OAuth2.Contract.Entity.Scope,
   OAuth2.Contract.Entity.AccessToken,
@@ -108,11 +109,9 @@ var
   LRefreshToken: string;
   LRefreshTokenData: TJSONObject;
   LClientId: string;
-  LExpireTime: TDateTime;
+  LExpireTime: Int64;
   LRefreshTokenId: string;
 begin
-  Result := nil;
-
   LEncryptedRefreshToken := GetRequestParameter('refresh_token', ARequest, EmptyStr);
 
   if LEncryptedRefreshToken.IsEmpty then
@@ -129,8 +128,8 @@ begin
     if LClientId <> AClientId then
       raise EOAuth2ServerException.InvalidRefreshToken('Invalid refresh token data');
 
-    LRefreshTokenData.TryGetValue<TDateTime>('expire_time', LExpireTime);
-    if LExpireTime < Now() then
+    LRefreshTokenData.TryGetValue<Int64>('expire_time', LExpireTime);
+    if UnixToDateTime(LExpireTime, True) < Now() then
       raise EOAuth2ServerException.InvalidRefreshToken('Token has expired');
 
     LRefreshTokenData.TryGetValue<string>('refresh_token_id', LRefreshTokenId);

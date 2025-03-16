@@ -142,7 +142,11 @@ begin
 
     Result := LRefreshTokenData;
   except
-    LRefreshTokenData.Free;
+    on E: Exception do
+    begin
+      LRefreshTokenData.Free;
+      raise;
+    end;
   end;
 end;
 

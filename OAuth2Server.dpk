@@ -108,3 +108,4 @@ contains
   OAuth2.BearerTokenValidator in 'src\authorization-validators\OAuth2.BearerTokenValidator.pas';
 
 end.
+

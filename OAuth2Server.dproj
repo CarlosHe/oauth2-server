@@ -83,7 +83,7 @@
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
         <DCC_CBuilderOutput>All</DCC_CBuilderOutput>
         <SanitizedProjectName>OAuth2Server</SanitizedProjectName>
-        <DCC_UnitSearchPath>modules\.dcp;modules\.dcu;modules;modules\bcrypt\samples\src;modules\bcrypt\src;modules\delphi-jose-jwt\Source\Common;modules\delphi-jose-jwt\Source\JOSE;modules\delphi-openssl\Source;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>modules\.dcp;modules\.dcu;modules;modules\bcrypt\src;modules\delphi-jose-jwt\Source\Common;modules\delphi-jose-jwt\Source\JOSE;modules\delphi-jose-jwt\Source;modules\delphi-openssl\Source;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Android)'!=''">
         <DCC_CBuilderOutput>None</DCC_CBuilderOutput>
@@ -154,9 +154,6 @@
         <DCCReference Include="IndySystem.dcp"/>
         <DCCReference Include="IndyProtocols.dcp"/>
         <DCCReference Include="IndyCore.dcp"/>
-        <DCCReference Include="modules\delphi-openssl\Source\OpenSSL.Core.pas"/>
-        <DCCReference Include="modules\delphi-openssl\Source\OpenSSL.EncUtils.pas"/>
-        <DCCReference Include="modules\delphi-openssl\Source\OpenSSL.libeay32.pas"/>
         <DCCReference Include="src\OAuth2.AuthorizationServer.pas"/>
         <DCCReference Include="src\OAuth2.CryptKey.pas"/>
         <DCCReference Include="src\OAuth2.ResourceServer.pas"/>
@@ -239,6 +236,12 @@
                 </DeployFile>
                 <DeployFile LocalName="..\..\..\Public\Documents\Embarcadero\Studio\21.0\Bpl\OAuth2Server.bpl" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployFile LocalName="C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\OAuth2Server.bpl" Configuration="Release" Class="ProjectOutput"/>
+                <DeployFile LocalName="C:\Users\Public\Documents\Embarcadero\Studio\37.0\Bpl\OAuth2Server.bpl" Configuration="Release" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>OAuth2Server.bpl</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="OSX32">
                         <Operation>1</Operation>

@@ -4,8 +4,10 @@
 	"version": "2.0.0",
 	"homepage": "",
 	"mainsrc": "./src/",
+	"browsingpath": "",
 	"projects": [],
 	"dependencies": {
+		"github.com/carloshe/delphi-openssl": "^1.0.4",
 		"github.com/paolo-rossi/delphi-jose-jwt": "^v3.0.1",
 		"github.com/viniciussanchez/bcrypt": "^1.0.3"
 	}

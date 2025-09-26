@@ -67,7 +67,7 @@ begin
     LToken.Claims.Expiration := GetExpiryDateTime;
     LToken.Claims.Subject := GetUserIdentifier;
     LScopesPayload := TJSONArray.Create;
-    LToken.Claims.JSON.AddPair('scopes', LScopesPayload);
+    LToken.Claims.JSON.AddPair('scope', LScopesPayload);
 
     for I := Low(GetScopes) to High(GetScopes) do
       LScopesPayload.Add(GetScopes[I].GetIdentifier);

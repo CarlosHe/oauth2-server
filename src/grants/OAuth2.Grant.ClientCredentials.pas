@@ -63,7 +63,7 @@ begin
 
   ValidateClient(ARequest);
 
-  LScopes := ValidateScopes(GetRequestParameter('scopes', ARequest, EmptyStr));
+  LScopes := ValidateScopes(GetRequestParameter('scope', ARequest, EmptyStr));
 
   LFinalizedScopes := GetScopeRepository.FinalizeScopes(
     LScopes,

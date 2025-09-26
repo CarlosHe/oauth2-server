@@ -72,7 +72,7 @@ begin
 
   LClient := ValidateClient(ARequest);
   LOldRefreshToken := ValidateOldRefreshToken(ARequest, LClient.GetIdentifier);
-  LScopePayload := LOldRefreshToken.GetValue<TJSONArray>('scopes');
+  LScopePayload := LOldRefreshToken.GetValue<TJSONArray>('scope');
 
   if LScopePayload = nil then
     raise EOAuth2ServerException.InvalidRefreshToken('Invalid scopes data');

@@ -87,7 +87,7 @@ begin
         LClientRedirectUri := LClientRedirectUri + [LJSONArrayClientRedirectUri.Items[I].Value];
       FClient := TOAuth2ClientEntity.New(LClientId, LClientName, LClientRedirectUri, LClientIsConfidential)
     end;
-    LJSONObjectAuthRequest.TryGetValue<TJSONArray>('scopes', LJSONArrayScopes);
+    LJSONObjectAuthRequest.TryGetValue<TJSONArray>('scope', LJSONArrayScopes);
     if LJSONArrayScopes <> nil then
     begin
       FScopes := [];
@@ -219,7 +219,7 @@ begin
     LJSONObjectAuthRequest.AddPair('user_id', FUser.GetIdentifier);
   end;
   LJSONArrayScopes := TJSONArray.Create;
-  LJSONObjectAuthRequest.AddPair('scopes', LJSONArrayScopes);
+  LJSONObjectAuthRequest.AddPair('scope', LJSONArrayScopes);
   for I := Low(FScopes) to High(FScopes) do
     LJSONArrayScopes.Add(FScopes[I].GetIdentifier);
   LJSONObjectAuthRequest.AddPair('authorization_approved', TJSONBool.Create(FAuthorizationApproved));

@@ -100,7 +100,7 @@ begin
       LPayload.AddPair('redirect_uri', LAuthCode.GetRedirectUri);
       LPayload.AddPair('auth_code_id', LAuthCode.GetIdentifier);
       LScopesPayload := TJSONArray.Create;
-      LPayload.AddPair('scopes', LScopesPayload);
+      LPayload.AddPair('scope', LScopesPayload);
       for I := 0 to Pred(Length(LAuthCode.GetScopes)) do
         LScopesPayload.Add(LAuthCode.GetScopes[I].GetIdentifier);
       LPayload.AddPair('user_id', LAuthCode.GetUserIdentifier);
@@ -215,7 +215,7 @@ begin
     try
       ValidateAuthorizationCode(LAuthCodePayload, LClient, ARequest);
 
-      LJSONArrayScopes := LAuthCodePayload.GetValue<TJSONArray>('scopes');
+      LJSONArrayScopes := LAuthCodePayload.GetValue<TJSONArray>('scope');
 
       for I := 0 to Pred(LJSONArrayScopes.Count) do
         LStringScopesCollection := LStringScopesCollection + [LJSONArrayScopes.Items[I].Value];

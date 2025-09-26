@@ -131,7 +131,7 @@ end;
 
 function EOAuth2ServerException.GetErrorType: string;
 begin
-  Result := GetErrorType;
+  Result := FErrorType;
 end;
 
 function EOAuth2ServerException.GetHint: string;
